@@ -49,6 +49,19 @@ const joinDisplayNone = (elem) => {
 
 
 /**
+ * 생성자 클래스
+ */
+class MemberList {
+    constructor(userId, userPw, userEmail, datetime = Date.now()) {
+        this.userId = userId;
+        this.userPw = userPw;
+        this.userEmail = userEmail;
+        this.datetime = datetime;
+    };
+};
+
+
+/**
  * 로그인 기능
  */
 const signInClick = () => {
@@ -57,20 +70,49 @@ const signInClick = () => {
     const userId = document.getElementById('userIdIn');
     const userPw = document.getElementById('userPwIn');
 
-    for (let i = 0; i < membersList.length; i++) {
-        const {userId : equalId, userPw : equalPw} = membersList[i];
+    const login = membersList.find((member) => {
+        return member.userId === userId.value && member.userPw === userPw.value;
+    });
 
-        if (userId.value === equalId && userPw.value === equalPw) {
-            alert(`${userId.value}님 방문해주셔서 감사합니다~`);
-            location.href = 'index.html';
-            return;
-        };
+    if (login) {
+        alert(`${userId.value}님 방문해주셔서 감사합니다~`);
+        location.href = 'index.html';
+        return;
+    }
+    else {
+        alert('아이디 및 비밀번호 등 입력하신 정보가 일치하지 않습니다. 다시 입력해주세요.');
+        location.reload();
+    };
 
-        if (i === membersList.length - 1) {
-            alert('아이디 및 비밀번호 등 입력하신 정보가 일치하지 않습니다. 다시 입력해주세요.');
-            location.reload();
-            // return;
-        };
+};
+
+
+/**
+ * 아이디 및 비밀번호 찾을 때 membersList에 값이 없는 경우
+ */
+const equalLogin = () => {
+    const membersList = JSON.parse(localStorage.getItem('membersList')) || [];
+
+    if (membersList.length === 0) {
+        alert('잘못된 입력값입니다. 확인 후 다시 입력해주세요.');
+        // location.reload();
+        return false;
+    }
+};
+
+
+/**
+ * findIndex함수 사용 후 결과값 비교하여 출력
+ */
+const findResult = (mode, compareVal, returnVal) => {
+    if (compareVal >= 0) {
+        alert(`${mode}는 [${returnVal}] 입니다.`);
+        location.reload();
+        return;
+    }
+    else {
+        alert('잘못된 입력값입니다. 확인 후 다시 입력해주세요.');
+        return;
     };
 };
 
@@ -83,21 +125,13 @@ const findIdBtnClick = () => {
     const userEmail = document.getElementById('findIduserEmail');
 
     equalLogin();
-    
-    for (let i = 0; i < membersList.length; i++) {
-        const {userId : equalId, userEmail : equalEmail} = membersList[i];
 
-        if (userEmail.value === equalEmail) {
-            alert(`아이디는 [${equalId}] 입니다.`);
-            userEmail.value = '';
-            return;
-        };
+    const findId = membersList.findIndex((member) => {
+        return member.userEmail === userEmail.value;
+    });
 
-        if (i === membersList.length - 1) {
-            alert('잘못된 입력값입니다. 확인 후 다시 입력해주세요.');
-            return;
-        };
-    };
+    findResult('아이디', findId, findId >= 0 ? membersList[findId].userId : null);
+
 };
 
 
@@ -110,49 +144,48 @@ const findPwBtnClick = () => {
     const userEmail = document.getElementById('findPwUserEmail');
 
     equalLogin();
+
+    const findPw = membersList.findIndex((member) => {
+        return member.userId === userId.value && member.userEmail === userEmail.value;
+    });
+
+    findResult('비밀번호', findPw, findPw >= 0 ? membersList[findPw].userPw : null);
     
-    for (let i = 0; i < membersList.length; i++) {
-        const {userId : equalId, userPw : equalPw, userEmail : equalEmail} = membersList[i];
-
-        if (userId.value === equalId && userEmail.value === equalEmail) {
-            alert(`비밀번호는 [${equalPw}] 입니다.`);
-            userId.value = '';
-            userEmail.value = '';
-            return;
-        };
-
-        if (i === membersList.length - 1) {
-            alert('잘못된 입력값입니다. 확인 후 다시 입력해주세요.');
-            return;
-        };
-    };
 };
 
 
 /**
- * membersList에 값이 없는 경우
+ * 중복검사 시 사용가능하다는 안내 창 띄우기
  */
-const equalLogin = () => {
-    const membersList = JSON.parse(localStorage.getItem('membersList')) || [];
-
-    if (membersList.length === 0) {
-        alert('잘못된 입력값입니다. 확인 후 다시 입력해주세요.');
-        // location.reload();
-        return false;
-    }
-}
+const ableData = (mode, val) => {
+    alert(`사용가능한 ${mode}입니다.`);
+    val.style.border = '2px solid lightgray';
+    return;
+};
 
 
 /**
- * 생성자 클래스
+ * 중복검사 시 사용불가하다는 안내 창 띄우기
  */
-class MemberList {
-    constructor(userId, userPw, userEmail, datetime = Date.now()) {
-        this.userId = userId;
-        this.userPw = userPw;
-        this.userEmail = userEmail;
-        this.datetime = datetime;
-    };
+const notableData = (mode, val) => {
+    alert(`중복된 ${mode}입니다. 다시 입력해주세요.`);
+    val.style.border = '2px solid red';
+    return;
+};
+
+
+/**
+ * 회원 가입 시 유효성 검사하여 결과값 반환
+ */
+const regExpTest = (regExp, elem, msg) => {
+    if (regExp.test(elem.value)) {
+        elem.style.border = '2px solid lightgray';
+        return true;
+    }
+
+    elem.style.border = '2px solid red';
+    alert(msg);
+    return false;
 };
 
 
@@ -167,28 +200,34 @@ const signUpIdCheck = () => {
         alert('아이디를 입력해주세요.');
     }
     else {
+        // 아이디 유효성 검사 (첫 글자는 영소문자로 시작하며 숫자 최소 하나 포함)
+        const regExp1 = /^[a-z][a-z\d]{3,11}$/;
+        const regExp2 = /\d/;
+        if (!regExpTest(regExp2, userId, '아이디는 숫자를 하나 이상 포함해주셔야 합니다.'))
+            return false;
+        if (!regExpTest(regExp1, userId, '아이디는 영소문자로 시작하는 4글자 ~ 12글자 입력해주셔야 합니다.'))
+            return false;
+
+        // 회원목록이 없는 경우
         if (membersList.length === 0) {
-            alert('사용가능한 아이디입니다.');
-            userId.style.border = '2px solid lightgray';
+            ableData('아이디', userId);
             return;
         };
 
-        for (let i = 0; i < membersList.length; i++) {
-            const {userId : savedId} = membersList[i];
-            
-            if (userId.value === savedId) {
-                alert('중복된 아이디입니다. 다시 입력해주세요.');
-                userId.style.border = '2px solid red';
-                return;
-            }
-    
-            if (i == membersList.length - 1) {
-                alert('사용가능한 아이디입니다.');
-                userId.style.border = '2px solid lightgray';
-                return;
-            }
-        };
-    }  
+        // 회원목록이 있는 경우 id값 비교
+        const equalIdResult = membersList.find((member) => {
+            return member.userId === userId.value;
+        });
+
+        if (equalIdResult) {
+            notableData('아이디', userId);
+            return;
+        }
+        else {
+            ableData('아이디', userId);
+            return;
+        }
+    };
 };
 
 
@@ -200,45 +239,47 @@ const signUpEmailCheck = () => {
     const userEmail = document.getElementById('userEmailUp');
 
     if (userEmail.value) {
+        // 이메일 유효성 검사
+        if (!regExpTest(/^[\w]{4,}@[\w]+(\.[\w]+){1,3}$/, userEmail, 
+        `이메일은 @앞에 영문자 숫자 4글자 ~ 12글자만 입력 가능합니다.
+(예. test1@naver.com)`
+        ))
+            return false;
+        
+        // 회원 목록이 없는 경우
         if (membersList.length === 0) {
-            alert('사용가능한 이메일입니다.');
-            userId.style.border = '2px solid lightgray';
+            ableData('이메일', userEmail);
             return;
         };
 
-        for (let i = 0; i < membersList.length; i++) {
-            const {userEmail : savedEmail} = membersList[i];
-            
-            if (userEmail.value === savedEmail) {
-                alert('중복된 이메일입니다. 다시 입력해주세요.');
-                userEmail.style.border = '2px solid red';
-                return;
-            }
-    
-            if (i == membersList.length - 1) {
-                alert('사용가능한 이메일입니다.');
-                userEmail.style.border = '2px solid lightgray';
-                return;
-            }
+        // 회원 목록이 있는 경우 이메일 값 비교
+        const equalEmailResult = membersList.find((member) => {
+            return member.userEmail === userEmail.value;
+        });
+
+        if (equalEmailResult) {
+            notableData('이메일', userEmail);
+            return;
+        }
+        else {
+            ableData('이메일', userEmail);
+            return;
         };
-    }  
+
+    };
 };
 
 
+/**
+ * 서버 저장 전 유효성 검사
+ */
 const signUpFrmCheck = (e) => {
     const userId = document.getElementById('userIdUp');
     const userPw = document.getElementById('userPwUp');
     const userPwCheck = document.getElementById('userPwCheckUp');
     const userEmail = document.getElementById('userEmailUp');
 
-    const regExpTest = (regExp, elem, msg) => {
-        if (regExp.test(elem.value))
-            return true;
-        alert(msg);
-        return false;
-    };
 
-    
     // 1. 아이디 유효성 검사
     // 첫 글자는 영소문자로 시작
     const regExp1 = /^[a-z][a-z\d]{3,11}$/;
