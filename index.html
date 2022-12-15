@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minkyeong</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Black+Han+Sans&family=Chakra+Petch&family=Cookie&family=Courgette&family=Covered+By+Your+Grace&family=Cute+Font&family=Dancing+Script:wght@500&family=Dongle&family=East+Sea+Dokdo&family=Gaegu&family=Gamja+Flower&family=Gugi&family=Hi+Melody&family=Indie+Flower&family=Jua&family=Kaushan+Script&family=Lobster+Two&family=Nanum+Pen+Script&family=Patua+One&family=Permanent+Marker&family=Poor+Story&family=Satisfy&family=Single+Day&family=Sunflower:wght@500&family=Syne+Mono&family=Yeon+Sung&display=swap" rel="stylesheet">
+    <script src="js/main.js"></script>
+    <script src="js/like.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div id="logo">
+            <a href="index.html">Choi Minkyeong</a>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="#about" onclick="visibilityDiv(this);" title="about">About</a>
+                </li>
+                <li>
+                    <a href="#like" onclick="visibilityDiv(this);" title="like">Like</a>
+                </li>
+                <li>
+                    <a href="#want" onclick="visibilityDiv(this); allButtonClassDel();" title="want">Want</a>
+                </li>
+                <li>
+                    <a href="join.html" id="login">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section id="main-section">
+            <div id="main" class="mainDiv">
+                <span>
+                    Minkyeong's page<br/>
+                </span>
+            </div>
+        </section>
+        <section id="about-section">
+            <div id="about" class="mainDiv">
+                <img src="images/me.jpg" alt="내사진">
+                <button type="button" id="tmi" onclick="tmiClick();">TMI (click!)</button>
+                <p>
+                    안녕하세요, 저는 <strong>백앤드 개발자</strong>가 되고 싶은 <strong>최민경</strong>입니다.<br/><br>
+                    KH정보교육원에서 풀 스택 개발자를 위한 수업을 들으며 열심히 공부하고 있습니다.<br/><br>
+                    사용자들에게 조금 더 나은 편의를 제공할 수 있는 개발자가 되고 싶습니다.
+                </p><br>
+            </div>
+            <div id="aboutTmi">
+                <p><h2>TMI</h2></p>
+                <p>
+                    <strong>MBTI</strong> : ISTP<br><br>
+                    <strong>SINGER</strong> : IU, 태연<br><br>
+                    <strong>HOBBY</strong> : 유튜브보기<br><br>
+                    <strong>LIKE</strong> : 이불 속, 먹을 것<br><br>
+                    <!-- <strong>BOOK</strong> : 그리고 아무도 없었다<br> -->
+                </p>
+                <button type="button" id="tmiClose" onclick="tmiClose();">닫기</button>
+            </div>
+        </section>
+        <section id="like-section">
+            <div id="like" class="mainDiv">
+                <div class="slider-wrap">
+                    <button type="button" class="prev" onclick="likeList(this);">&lt;</button>
+                    <ul class="like-slider">
+                        <li class="food">
+                            <img src="images/waffle.jpg" alt="과일생크림와플">
+                            <div class="foodCont">
+                                <p>
+                                    포천에서<br>
+                                    먹은 와플
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/salad.jpg" alt="연어샐러드">
+                            <div class="foodCont">
+                                <p>
+                                    왕십리에서<br>
+                                    먹은 연어샐러드
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/souffle.jpg" alt="수플레팬케이크">
+                            <div class="foodCont">
+                                <p>
+                                    혜화에서<br>
+                                    먹은 수플레팬케이크
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/jambong.jpg" alt="잠봉뵈르및커피">
+                            <div class="foodCont">
+                                <p>
+                                    부산에서<br>
+                                    먹은 잠봉뵈르
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/taco(1).jpg" alt="타코">
+                            <div class="foodCont">
+                                <p>
+                                    연남동에서<br>
+                                    먹은 타코
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/branch.jpg" alt="샐러드">
+                            <div class="foodCont">
+                                <p>
+                                    연어 샐러드<br>
+                                    및 브런치
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/crab.jpg" alt="간장게장">
+                            <div class="foodCont">
+                                <p>
+                                    간장게장
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="like-slider">
+                        <li class="food">
+                            <img src="images/waffle2.jpg" alt="과일생크림와플">
+                            <div class="foodCont">
+                                <p>
+                                    강화도에서<br>
+                                    먹은 와플
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/hamburger.jpg" alt="햄버거랑고구마튀김">
+                            <div class="foodCont">
+                                <p>
+                                    광화문에서<br>
+                                    먹은 햄버거랑 고구마튀김
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/bread3.jpg" alt="허니브레드">
+                            <div class="foodCont">
+                                <p>
+                                    담양에서<br>
+                                    먹은 허니브레드
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/bread.jpg" alt="빵과커피">
+                            <div class="foodCont">
+                                <p>
+                                    광명에서<br>
+                                    먹은 빵과 아메리카노
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/pasta.jpg" alt="파스타">
+                            <div class="foodCont">
+                                <p>
+                                    홍대에서<br>
+                                    먹은 파스타
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/pasta-meat.jpg" alt="파스타">
+                            <div class="foodCont">
+                                <p>
+                                    포천에서<br>
+                                    먹은 파스타
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/intestine.jpg" alt="곱창">
+                            <div class="foodCont">
+                                <p>
+                                    모둠곱창구이
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="like-slider">
+                        <li class="food">
+                            <img src="images/waffle3.jpg" alt="과일생크림와플">
+                            <div class="foodCont">
+                                <p>
+                                    남해에서<br>
+                                    먹은 크로플
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/hamburger2.jpg" alt="미니햄버거">
+                            <div class="foodCont">
+                                <p>
+                                    홍대에서<br>
+                                    먹은 미니버거
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/bread2.jpg" alt="허니브레드">
+                            <div class="foodCont">
+                                <p>
+                                    딸기생크림크루와상<br>
+                                    에그타르트<br>
+                                    앙버터브레드
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/skunk.jpg" alt="크로와상및커피">
+                            <div class="foodCont">
+                                <p>
+                                    경주에서<br>
+                                    먹은 크루와상
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/taco2.jpg" alt="타코">
+                            <div class="foodCont">
+                                <p>
+                                    강남에서<br>
+                                    먹은 타코
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/pasta-pork.jpg" alt="파스타">
+                            <div class="foodCont">
+                                <p>
+                                    홍대에서<br>
+                                    먹은 파스타
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/french fries.jpg" alt="돈까스및감자튀김">
+                            <div class="foodCont">
+                                <p>
+                                    햄야채<br>
+                                    치즈돈까스<br>
+                                    feat. 감튀
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="like-slider">
+                        <li class="food">
+                            <img src="images/waffle-79.jpg" alt="빵과커피">
+                            <div class="foodCont">
+                                <p>
+                                    망원동에서<br>
+                                    먹은 크로플
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/hamburger-cry.jpg" alt="햄버거">
+                            <div class="foodCont">
+                                <p>
+                                    수제치즈버거
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/honeybread.jpg" alt="허니브레드">
+                            <div class="foodCont">
+                                <p>
+                                    남해에서<br>
+                                    먹은 허니브레드
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/cake(1).jpg" alt="케이크">
+                            <div class="foodCont">
+                                <p>
+                                    홍대에서<br>
+                                    먹은 케이크
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/branch2.jpg" alt="파니니및파스타">
+                            <div class="foodCont">
+                                <p>
+                                    불고기파니니<br>
+                                    새우토마토파스타
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/pasta2.jpg" alt="파스타">
+                            <div class="foodCont">
+                                <p>
+                                    혜화에서<br>
+                                    먹은 파스타
+                                </p>
+                            </div>
+                        </li>
+                        <li class="food">
+                            <img src="images/porkbelly.jpg" alt="삼겹살">
+                            <div class="foodCont">
+                                <p>
+                                    삼겹살
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="button" class="next" onclick="likeList(this);">&gt;</button>
+                </div>
+                <div id="slideBtn">
+                </div>
+                <div id="slideP">
+                    <p>
+                        저는 먹는 걸 좋아합니다.<br><br>
+                        선호하는 음식은 없고 정말 맛이 없지 않은 이상 다 잘 먹습니다.<br><br>
+                        제가 지금까지 먹었던 음식사진 중 <br><br>
+                        몇 가지만 추려서 갤러리처럼 볼 수 있게 나타내보았습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="want-section">
+            <div id="want" class="mainDiv">
+                <div id="wantAfterCompletion">
+                    <button type="button" id="afterCompletionBtn" class="afterCompletion" onclick="changeWant(this);" data-text="수료 후">수료 후</button>
+                    <p class="afterCompletion">
+                        신입개발자<br><br>
+                        어리숙한 모습이겠지만<br>
+                        빠르게 적응하고<br>
+                        열심히 배워서<br>
+                        발전해나가겠습니다.<br><br><br><br>
+                    </p>
+                </div>
+                <div id="wantAfterThreeYear">
+                    <button type="button" id="afterThreeYearBtn" class="afterThreeYear" onclick="changeWant(this);" data-text="3년 후">3년 후</button>
+                    <p class="afterThreeYear">
+                        현재에 그치지 않고<br>
+                        Python, Node.js 등<br>
+                        새로운 언어를 공부하며<br>
+                        더욱 발전해나가겠습니다.<br><br>
+                        또한, 후배 개발자들에게<br>
+                        일 잘하고<br>
+                        잘 가르쳐주는 선배로<br>
+                        기억되고 싶습니다.<br><br>
+                    </p>
+                </div>
+                <div id="wantAfterFiveYear">
+                    <button type="button" id="afterFiveYearBtn" class="afterFiveYear" onclick="changeWant(this);" data-text="5년 후">5년 후</button>
+                    <p class="afterFiveYear">
+                        DataBase 관련하여<br>
+                        PostgreSQL을 공부하여<br>
+                        관련 지식을<br> 
+                        발전시키겠습니다.<br><br>
+                        이러한 지식을<br>
+                        바탕으로<br>
+                        개발 역량을<br>
+                        더욱 키워나가겠습니다.<br><br><br>
+                    </p>
+                </div>
+                <div id="wantAfterTenYear">
+                    <button type="button" id="afterTenYearBtn" class="afterTenYear" onclick="changeWant(this);" data-text="10년 후">10년 후</button>
+                    <p class="afterTenYear">
+                        자만하지 않고<br>
+                        꾸준히 노력하며<br>
+                        발전해나가는<br>
+                        개발자가 되고 싶습니다.<br><br>
+                        또한, 같이 일하는<br>
+                        동료들에게 인정받는<br>
+                        개발자가 되도록<br>
+                        노력하겠습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- <div id="want" class="mainDiv">
+            <section id="want-section">
+                <div id="wantAfter" class="default">
+                    <p>내가 원하는 나의 미래</p>
+                </div>
+                <div id="wantBtn">
+                    <button type="button" id="afterCompletion" class="changeBtn1" onclick="changeArticle(this);" data-text="수료 후">수료 후</button>
+                    <button type="button" id="afterThreeYear" class="changeBtn2" onclick="changeArticle(this);" data-text="3년 후">3년 후</button>
+                    <button type="button" id="afterFiveYear" class="changeBtn3" onclick="changeArticle(this);" data-text="5년 후">5년 후</button>
+                    <button type="button" id="afterTenYear" class="changeBtn4" onclick="changeArticle(this);" data-text="10년 후">10년 후</button>
+                </div>
+                <article id="wantArti">
+                    <div id="afterCompletionBox" class="change">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae consectetur in ullam maxime nisi doloribus vel corrupti officia ab dignissimos accusantium facilis, dolor voluptas et, pariatur ex non. Deleniti, iure.</p>
+                    </div>
+                    <div id="afterThreeYearBox" class="change">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fugit vitae quae, quaerat dolores, iure vero quasi ullam atque sunt dolorum eius iste! Nihil dolores quod id adipisci aspernatur fuga.</p>
+                    </div>
+                    <div id="afterFiveYearBox" class="change">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, omnis maiores consequatur consectetur laboriosam quo quisquam veniam distinctio culpa doloremque fuga beatae impedit expedita minus, odit molestiae reiciendis molestias eveniet.</p>
+                    </div>
+                    <div id="afterTenYearBox" class="change">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit minus repellendus quis blanditiis hic eos accusantium dolorum expedita eligendi? Dicta iure delectus quod beatae aut necessitatibus rem ipsam architecto non?</p>
+                    </div>
+                </article>
+            </section>
+        </div> -->
+    </main>
+    <footer id="footer">
+        <p>
+            <span>Made by. MinKyeong Choi</span><br>
+            <span>Copyright 2022. MinKyeong Choi. All Rights Reserved</span>
+        </p>
+    </footer>
+</body>
+</html>

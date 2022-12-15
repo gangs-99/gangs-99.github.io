@@ -1,0 +1,360 @@
+html {
+    width: 1024px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: lightgray; */
+}
+
+#header {
+    width: 100%;
+    height: 120px;
+    /* background-color: lemonchiffon; */
+    margin: auto;
+}
+
+#logo {
+    padding-top: 10px;
+    float: left;
+    width: 100%;
+    height: 50%;
+    /* background-color: darkorange; */
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+}
+
+#logo a {
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+    font-family: 'Cute Font', cursive;
+}
+
+#logo a:hover {
+    font-size: 1.1em;
+    text-shadow: 2px 1px 2px rgb(185, 185, 185);
+}
+
+div:not(div[class=sign]) {
+    display: flex;
+    justify-content: center;
+    clear: both;
+    width: 100%;
+    height: 50%;
+}
+
+ul#menu {
+    padding: 50px;
+    list-style: none;
+    /* background-color: lightsalmon; */
+    margin: 0;
+}
+
+ul#menu li {
+    float: left;
+    text-align: center;
+    padding: 0 50px;
+    font-family: 'Dongle', sans-serif;
+    font-size: 35px;
+}
+
+ul#menu li a {
+    display: block;
+    text-decoration: none;
+    color: rgb(111, 111, 111);
+}
+
+ul#menu li a:hover {
+    font-size: 1.1em;
+    text-shadow: 1px 1px 1px rgb(183, 183, 183);
+}
+
+div#main {
+    width: 100%;
+    height: 600px;
+    background: url(../images/main.png) 50%/80% no-repeat scroll;
+    opacity: .8;
+    position: absolute;
+    visibility: visible;
+}
+
+main {
+    position: relative;
+}
+
+#main-section {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    justify-content: space-between;
+}
+
+#main-section span {
+    padding: 10px 0;
+    font: bolder 40px 'Lobster Two', 'Satisfy', 'Poor Story', cursive;
+}
+
+/* #section {
+    width: 80%;
+    height: 80vh;
+    background: url(../images/img1.jpg) 30%/60% no-repeat fixed;
+    opacity: .8;
+} */
+
+/* #aside {
+    width: 20%;
+    height: 80vh;
+    background-color: lightcyan;
+} */
+
+section {
+    height: 100vh;
+}
+
+#footer {
+    position: absolute;
+    top: 800px;
+    width: 100%;
+    margin-top: 50px;
+    /* background-color: darkseagreen; */
+}
+
+#footer p span {
+    font: normal 15px 'Poor Story', cursive;
+    padding: 0 15%;
+}
+
+
+/* Want.html */
+div#want {
+    visibility: hidden;
+    position: absolute;
+}
+
+#want-section {
+    width: 100%;
+    /* height: 60vh; */
+    /* background-color: lightsalmon; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+#wantBtn {
+    /* margin-top: 50px; */
+    padding-top: 50px;
+    position: relative;
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    /* text-align: center; */
+    /* background-color: bisque; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+  
+#wantBtn button {
+    display: block;
+    /* position: absolute; */
+    top: 50%;
+    /* left: 10em; */
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    transition: all;
+    /* background-color: #F5EBE0; */
+    background-color: #FDFFBC;
+    border: none;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
+    font: normal 15px 'Poor Story', cursive;
+}
+
+#wantBtn button:hover, .clicked {
+    transform: scale(1.1,1.1);
+    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+#wantBtn button:nth-child(2), #wantArti div#afterThreeYearBox {
+    /* left: 20em; */
+    /* background-color: #fcf5e9; */
+    background-color: #FFEEBB;
+}
+
+#wantBtn button:nth-child(3), #wantArti div#afterFiveYearBox {
+    /* left: 30em; */
+    /* background-color: #fefbe2; */
+    background-color: #FFDCB8;
+}
+
+#wantBtn button:last-child, #wantArti div#afterTenYearBox {
+    /* left: 40em; */
+    /* background-color: #fde6c4; */
+    background-color: #FFC1B6;
+}
+
+#wantBtn button.clicked {
+    width: 110px;
+    height: 50px;
+    box-shadow: 1px 1px 3px lightslategray;
+}
+
+#wantArti {
+    width: 100%;
+}
+
+ #wantAfter {
+    font: bolder 30px 'Poor Story', cursive;
+    text-align: center;
+    /* padding-top: 50px; */
+    margin: 0;
+    height: 50px;
+}
+
+#wantArti div.change {
+    display: none;
+    width: 70%;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #FDFFBC;
+    padding: 10px;
+    opacity: .5;
+    /* border: 1px solid lightslategray; */
+}
+
+
+/* join.html */
+span.home {
+    display: block;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    float: right;
+}
+
+span.home a {
+    text-decoration: none;
+    color: #fdb1af;
+    font-weight: bolder;
+    margin-right: 200px;
+}
+
+span.home a img {
+    width: 25px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+span.home a:hover, span.home a img:hover {
+    text-shadow: 1px 0px 1px #f8d2a9;
+    /* width: 27px; */
+    color: #fdb1af;
+    /* color: #fef6c0; */
+}
+
+#join-section {
+    width: 100%;
+    position: relative;
+}
+
+#join-section div {
+    width: 100%;
+    height: 900px;
+    position: absolute;
+    /* background-color: #f8d2a9; */
+}
+
+#join-section div#signUp {
+    visibility: hidden;
+}
+
+#join-section form {
+    text-align: center;
+    /* padding-top: 50px; */
+    /* background-color: #f8d2a9; */
+    /* border-radius: 30%; */
+    /* margin-top: 100px; */
+    font: normal 20px 'Poor Story', cursive;
+}
+
+#join-section form legend {
+    font: bold 30px 'Sunflower', sans-serif;
+    margin-bottom: 50px;
+}
+
+#join-section form label[for^=user] {
+    float: left;
+    margin-left: 300px;
+}
+
+#join-section form input[name^=user] {
+    width: 40%;
+    margin: 10px 0 30px;
+    font: normal 25px 'Dongle', sans-serif;
+    border: 2px solid lightgray;
+}
+
+#join-section form label span {
+    color: darkred;
+    font-weight: bolder;
+}
+
+#join-section form input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-left: 300px;
+}
+
+#join-section form label[for=checkedAll] {
+    float: left;
+    margin-left: 10px;
+}
+
+#join-section form input[id*=Check] {
+    width: 15px;
+    height: 15px;
+}
+
+#join-section form label[for*=Check] {
+    float: left;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+#join-section form button {
+    margin-top: 20px;
+    width: 41%;
+    height: 40px;
+    background-color: #ffefd2;
+    border: none;
+    border-radius: 20px;
+    font: normal 20px 'Poor Story', cursive;
+    cursor: pointer;
+}
+
+#join-section form button:hover {
+    box-shadow: 1px 2px 3px lightgray;
+}
+
+#join-section form span {
+    font-size: 15px;
+}
+
+#join-section form a {
+    font-weight: bold;
+    font-size: 20px;
+    color: #7895B2;
+    text-decoration: none;
+}

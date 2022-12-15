@@ -1,0 +1,554 @@
+html {
+    width: 1024px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FCF8E8;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    margin: 0;
+}
+
+div:not(div[class=sign]) {
+    display: flex;
+    justify-content: center;
+    clear: both;
+    width: 100%;
+    height: 50%;
+}
+
+
+/* main */
+#header {
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    display: flex;
+}
+
+div#nav {
+    display: flex;
+    justify-content: flex-end;
+    clear: both;
+    width: 100%;
+    height: 50%;
+}
+
+#logo {
+    padding: 30px;
+    float: left;
+    width: 30%;
+    text-align: left;
+    display:flex;
+    justify-content: flex-start;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #7d645b;
+    font-size: 30px;
+    font-family: 'Satisfy', cursive;
+}
+
+#logo a:hover {
+    text-shadow: 1px 1px 2px rgb(185, 185, 185);
+    color: #594545;
+}
+
+ul#menu {
+    padding: 30px;
+    list-style: none;
+    margin: 0;
+}
+
+ul#menu li {
+    float: left;
+    text-align: center;
+    padding: 0 30px;
+    font-family: 'Dongle', sans-serif;
+    font-size: 30px;
+}
+
+ul#menu li a {
+    display: block;
+    text-decoration: none;
+    color: #a68c79;
+}
+
+ul#menu li a:hover {
+    color: #a68c79;
+    text-shadow: 0px 1px 1px #7d645b;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+#main-section {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#main {
+    height: 590px;
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+#main span {
+    display: inline-block;
+    padding-top: 3em;
+    padding-right: 1em;
+    color: #6b4e42;
+    font: bolder 70px 'Poor Story', cursive;
+}
+
+#footer {
+    width: 100%;
+}
+
+#footer p span {
+    font: normal 15px 'Poor Story', cursive;
+    padding: 0 15%;
+    color: #7d645b;
+}
+
+
+/* about */
+#about-session {
+    position: relative;
+}
+div#about {
+    height: 590px;
+    display: block;
+    text-align: center;
+    display: none;
+}
+
+div#about img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+div#about p {
+    font: normal 25px 'Poor Story', cursive;
+}
+
+div#about p:last-of-type {
+    font-size: 27px;;
+}
+
+#tmi {
+    cursor: pointer;
+    color: #6b4e42;
+    font: bold 20px 'Poor Story', cursive;
+    background-color: rgba(0, 0, 0, 0.0);
+    border: none;
+}
+
+#aboutTmi {
+    width: 400px;
+    height: 400px;
+    top: 150px;
+    left: 312px;
+    text-align: center;
+    background-color: rgba(107, 78, 66, 0.959);
+    color: #fff;
+    position: absolute;
+    display: none;
+    font: bold 20px 'Poor Story', cursive;
+    border-radius: 25px;
+}
+
+#aboutTmi button {
+    cursor: pointer;
+    background-color: #fff;
+    color: #594545;
+    border: none;
+    border-radius: 20px;
+    font: bold 15px 'Poor Story', cursive;
+}
+
+
+/* Like */
+#like-section {
+    width: 100%;
+}
+
+#like {
+    width: 100%;
+    height: 590px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+div#slider-wrap button {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#like ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+}
+
+#like li {
+    list-style: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#like ul li:not(:first-of-type) {
+    display: none;
+}
+
+#like .food {
+    width: 200px;
+    margin: 10px;
+    float: left;
+}
+
+#like img {
+    width: 200px;
+    overflow: hidden;
+}
+
+#like li div.foodCont {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    opacity: .0;
+    transition: all .5s;
+}
+
+#like li:hover div.foodCont {
+    transform: translate(0px, -100px);
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+#like li div.foodCont p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    font: bold 20px 'Poor Story', cursive;
+}
+
+#like .moveBtn {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: #7d645b;
+}
+
+.slider-wrap button[type=button] {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.0);
+    font: bolder 25px 'Poor Story', cursive;
+    color: #594545;
+}
+
+.slider-wrap button[type=button]:hover {
+    cursor: pointer;
+    text-shadow: 1px 1px 3px #a68c79;
+}
+
+#slideBtn {
+    height: 40px;
+}
+
+#slideP p {
+    font: normal 20px 'Poor Story', cursive;
+    text-align: center;
+}
+
+
+/* want.html */
+#want-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#want {
+    width: 100%;
+    height: 590px;
+    display: flex;
+    justify-content: space-evenly;
+    display: none;
+    background: url('../images/roadmap4.png') center/contain no-repeat scroll;
+}
+
+#want div {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+}
+  
+#want button {
+    display: block;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    transition: all;
+    background-color: #EA907A;
+    border: none;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
+    font: normal 15px 'Poor Story', cursive;
+    cursor: pointer;
+}
+
+#want div p {
+    font: normal 15px 'Poor Story', cursive;
+    opacity: .0;
+}
+
+#want div:first-child, #want div ~ * {
+    justify-content: flex-end;
+}
+
+#want div:first-child p {
+    margin-top: 70px;
+}
+
+#want div:nth-child(2) button {
+    background-color: #FBC687;
+}
+
+#want div:nth-child(2) p {
+    margin-top: 70px;
+    margin-bottom: 80px;
+}
+
+#want div:nth-child(3) button {
+    background-color: #fcffb4;
+}
+
+#want div:nth-child(3) p {
+    margin-top: 70px;
+    margin-bottom: 150px;
+}
+
+#want div:last-child button {
+    background-color: #AACDBE;
+}
+
+#want div:last-child p {
+    margin-top: 70px;
+    margin-bottom: 280px;
+}
+
+#want div button:hover {
+    transform: scale(1.1,1.1);
+}
+
+#want div button.clicked {
+    width: 110px;
+    height: 50px;
+    box-shadow: 1px 1px 5px lightslategray;
+}
+
+
+/* join */
+#home {
+    display: block;
+    margin-top: 50px;
+    float: right;
+}
+
+#home a {
+    text-align: center;
+    text-decoration: none;
+    color: #9F8772;
+    font-weight: bolder;
+    margin-right: 5em;
+}
+
+#home a:hover{
+    color: #576F72;
+}
+
+#join-section {
+    width: 100%;
+}
+
+#join-section div {
+    width: 100%;
+    height: 900px;
+}
+
+#join-section div#signUp {
+    display: none;
+}
+
+#join-section div[id^=find] {
+    display: none;
+}
+
+#join-section form {
+    text-align: center;
+    font: normal 20px 'Poor Story', cursive;
+}
+
+#join-section form legend {
+    font: bold 30px 'Sunflower', sans-serif;
+    margin-bottom: 50px;
+}
+
+#join-section form label[for^=user], #join-section form label[for^=find] {
+    float: left;
+    margin-left: 300px;
+}
+
+#join-section form input[id^=user], #join-section form input[id^=find]  {
+    width: 40%;
+    margin: 10px 0 30px;
+    font: normal 25px 'Dongle', sans-serif;
+    border: 2px solid lightgray;
+}
+
+#join-section form label[for] {
+    float: left;
+    margin-left: 300px;
+}
+
+#join-section form label span {
+    color: darkred;
+    font-weight: bolder;
+}
+
+#join-section form label p {
+    display: inline-block;
+    font-size: 15px;
+    margin: 0px;
+}
+
+#join-section form input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-left: 300px;
+}
+
+#join-section form label[for=checkedAll] {
+    float: left;
+    margin-left: 10px;
+}
+
+#join-section form input[name^=check] {
+    width: 15px;
+    height: 15px;
+}
+
+#join-section form label[for*=Check] {
+    float: left;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+#join-section form button, #join-section form input[type=submit] {
+    margin-top: 20px;
+    width: 41%;
+    height: 40px;
+    background-color: rgb(234, 215, 192);
+    color: #7d645b;
+    border: none;
+    border-radius: 20px;
+    font: normal 20px 'Poor Story', cursive;
+    cursor: pointer;
+}
+
+#join-section form button:hover, #join-section form input[type=submit]:hover {
+    background-color: #7d645b;
+    color: #fff;
+    box-shadow: 1px 2px 3px lightgray;
+}
+
+#join-section form span, #membersLi span {
+    font-size: 15px;
+}
+
+#join-section form a, #membersLi a {
+    font-weight: bold;
+    font-size: 20px;
+    color: #7895B2;
+    text-decoration: none;
+}
+
+#join-section #membersList {
+    background-color: #a68c79;
+    color: #ccc;
+}
+
+#join-section #membersList a {
+    color: #fff;
+    font: normal 20px 'Poor Story', cursive;
+}
+
+#join-section #membersList:hover {
+    color: #fff;
+    background-color: #594545;
+    box-shadow: 1px 2px 3px lightgray;
+}
+
+#membersLi {
+    width: 100%;
+    height: 900px;
+    display: none;
+    text-align: center;
+    font: normal 20px 'Poor Story', cursive;
+}
+
+#membersLi h2 {
+    padding-top: 30px;
+    text-align: center;
+    color: #431f1f;
+    font: bolder 40px 'Poor Story', cursive;
+}
+
+#members-list-table {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    font: normal 20px 'Poor Story', cursive;
+    color: #594545;
+}
+
+#members-list-table td {
+    padding-top: 20px;
+}
